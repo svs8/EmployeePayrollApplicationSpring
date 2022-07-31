@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,9 +22,9 @@ public @ToString class EmployeePayrollDTO {
     @NotNull(message="startDate should not be empty")
     @PastOrPresent(message ="startDate should be past or todays date")
     public LocalDate startDate;
-    @NotNull(message="Note cannot be empty")
+    @NotBlank(message="Note cannot be empty")
     public String note;
-    @NotNull(message="profilePic cannot be empty")
+    @NotBlank(message="profilePic cannot be empty")
     public String profilePic;
     @NotNull(message="Department should not be empty")
     public List<String> departments;
